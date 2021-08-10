@@ -1,3 +1,6 @@
+/*************************
+ *  Code by Yu-Chun Tung 
+ *************************/
 'use strict';
 
 const showModal = document.querySelectorAll('.show-modal');

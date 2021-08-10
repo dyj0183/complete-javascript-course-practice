@@ -1,3 +1,6 @@
+/*************************
+ *  Code by Yu-Chun Tung 
+ *************************/
 'use strict';
 
 let secretNumber = Math.trunc(Math.random() * 20);
