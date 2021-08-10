@@ -22,6 +22,14 @@ p2CurrentSocre.textContent = 0;
 p1TotalScore.textContent = 0;
 p2TotalScore.textContent = 0;
 
+function switchPlayer() {
+    // change olayer
+    turn = turn === 1 ? 2 : 1;
+    // update the CSS 
+    p1Player.classList.toggle('player--active');
+    p2Player.classList.toggle('player--active');
+}
+
 // when users click on roll dice, it will call this function
 rollDice.addEventListener('click', function () {
 
@@ -33,21 +41,15 @@ rollDice.addEventListener('click', function () {
     // if dice number equals to 1, score goes back to 0, also check the turn to make sure it is for p1 or p2
     if (randomDice !== 1 && turn === 1) {
         p1Score += randomDice;
-        console.log(typeof p1CurrentSocre.textContent);
     } else if (randomDice === 1 && turn === 1) {
         p1Score = 0;
-        // change from player1 to player2
-        turn = 2;
-        // update the CSS 
-        p1Player.classList.remove('player--active');
-        p2Player.classList.add('player--active');
+
+        switchPlayer()
     } else if (randomDice !== 1 && turn === 2) {
         p2Score += randomDice;
     } else {
         p2Score = 0;
-        turn = 1;
-        p1Player.classList.add('player--active');
-        p2Player.classList.remove('player--active');
+        switchPlayer()
     }
 
     // update the current socre on the game board
@@ -61,20 +63,12 @@ hold.addEventListener('click', function () {
         p1CurrentSocre.textContent = 0;
         p1Score = 0
 
-        // change from player1 to player2
-        turn = 2;
-        // update the CSS 
-        p1Player.classList.remove('player--active');
-        p2Player.classList.add('player--active');
+        switchPlayer();
     } else {
         p2TotalScore.textContent = Number(p2TotalScore.textContent) + p2Score;
         p2CurrentSocre.textContent = 0;
         p2Score = 0;
 
-        // change from player2 to player1
-        turn = 1;
-        // update the CSS 
-        p1Player.classList.add('player--active');
-        p2Player.classList.remove('player--active');
+        switchPlayer();
     }
 })
