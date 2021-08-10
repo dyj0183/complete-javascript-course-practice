@@ -1,3 +1,5 @@
+// code by Yu-Chun Tung
+
 'use strict';
 
 const rollDice = document.querySelector('.btn--roll');
