@@ -23,7 +23,7 @@ p1TotalScore.textContent = 0;
 p2TotalScore.textContent = 0;
 
 function switchPlayer() {
-    // change olayer
+    // change player by using ternary operator 
     turn = turn === 1 ? 2 : 1;
     // update the CSS 
     p1Player.classList.toggle('player--active');
